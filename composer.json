@@ -1,58 +1,48 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "symfony/translation",
+    "type": "library",
+    "description": "Symfony Translation Component",
+    "keywords": [],
+    "homepage": "https://symfony.com",
     "license": "MIT",
-    "type": "project",
+    "authors": [
+        {
+            "name": "Fabien Potencier",
+            "email": "fabien@symfony.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
     "require": {
-        "php": ">=5.6.4",
-        "laravel/framework": "5.3.*"
+        "php": ">=5.5.9",
+        "symfony/polyfill-mbstring": "~1.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "xethron/migrations-generator": "dev-l5",
-        "way/generators": "dev-feature/laravel-five-stable"
+        "symfony/config": "~2.8|~3.0",
+        "symfony/intl": "~2.8|~3.0",
+        "symfony/yaml": "~2.8|~3.0",
+        "psr/log": "~1.0"
+    },
+    "conflict": {
+        "symfony/config": "<2.8"
+    },
+    "suggest": {
+        "symfony/config": "",
+        "symfony/yaml": "",
+        "psr/log": "To use logging capability in translator"
     },
     "autoload": {
-        "classmap": [
-            "database"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
+        "psr-4": { "Symfony\\Component\\Translation\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
         ]
     },
-    "scripts": {
-        "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "php artisan key:generate"
-        ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "repositories": {
-        "repo-name": {
-            "type": "git",
-            "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git"
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1-dev"
         }
     }
 }
